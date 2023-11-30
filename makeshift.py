@@ -49,7 +49,6 @@ class Net(nn.Module):
         self.fc = nn.Linear(hidden_dim, output_dim)
         # relu layer to add non lineartiry to the model
         self.relu = nn.ReLU()
-        #relu layer to add non lineartiry to the model
         self.tanh = nn.tanh()
         '''Dropout and Batch Normalization are techniques used in neural networks to improve training and generalization
         Purpose: Dropout is a regularization technique that helps prevent overfitting in neural networks.
