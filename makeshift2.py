@@ -37,13 +37,34 @@ class DenseLayer:
         return self.output_data
 
 
+class SequentialNeuralNetwork:
+    def __init__(self):
+        self.layers = []
 
-layer1 = DenseLayer(input_size)
+    def add_layer(self, DenseLayer):
+        self.layers.append(DenseLayer)
+
+    def forward(self, X):
+        for layer in self.layers:
+            X = layer.forward(X)
+        return X
 
 
-class loss_fucntion:
-    def __init__(self,):
-        
+
+
+class loss_function:
+    def calculate(self, ouput, y ):
+        sample_loses = self.forwarf(output, y)
+        data_loss = np.mean(sample_losses)
+        return data_loss
+
+
+class loss_categorical(loss_function):
+    def forward(self, y_pred, y_true):
+        samples =len(y_pred)
+        y_pred_clipped = np.clip(y_pred, 1e-7, 1-le-7)
+
+    if len(y_true.shape) ==1:
 
 
 
