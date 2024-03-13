@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 # Define the neural network architecture
+#define a hidden layer for the input and hidden size
 class TransportationPredictionModel(nn.Module):
     def __init__(self, input_size, hidden_size, output_size):
         super(TransportationPredictionModel, self).__init__()
@@ -20,9 +21,9 @@ train_data = torch.tensor([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0], [7.0, 8.0, 9.0]])
 train_labels = torch.tensor([[10.0], [20.0], [30.0]])
 
 # Initialize the model with
-input_size = 3
-hidden_size = 10
-output_size = 1
+input_size = 3 
+hidden_size = 10 #how many nuerons in hidden layer
+output_size = 1 
 model = TransportationPredictionModel(input_size, hidden_size, output_size)
 
 # Define the loss function and optimizer

@@ -7,18 +7,31 @@ import torch.optim as optim
 
 
 # Initialize an empty list to store tokenized sentences
-tokenized_text = []
+words = open('names.txt', 'r').read().splitlines()
 
-# Open the file and read it line by line
-with open('testdata.txt') as fp:
-    for line in fp:
-        # Split the line into words and remove leading/trailing whitespaces
-        words = line.strip().split()
-        if words:
-            tokenized_text.append(words)
-
-learning_rate =0.001
+tokenized_text = AutoTokenizer(words)
+               
+lr =0.001
 batch_size = 6
+#change these values if want to
+embedding_dim = 100
+hidden_dim = 140
+dropout = 0.2
+output_dim =1
+
+
+
+
+
+class layer_dense():
+    def __init__(self) -> None:
+        self.weights = lr * np.random.randn(n_inputs, n_nuerons)
+        self.biases = np.zeros(self.weights * )
+    
+    
+    
+    def forward(self, inputs):
+        self.output = np.dot(inputs, self.weights()) + self.biases
 
 
 '''this finds all the words used in the provided text along with inputting all  the words into '''
@@ -30,14 +43,6 @@ numerical_text = [[unique_words.index(word) for word in sentence] for sentence i
 numerical_text_tensors = [torch.LongTensor(sentence) for sentence in numerical_text]
 tokenized_text_tensor = torch.LongTensor(numerical_text)
 padded_text = pad_sequence(numerical_text_tensors, batch_first=True, padding_value=0)
-
-
-#change these values if want to
-embedding_dim = 100
-hidden_dim = 140
-dropout = 0.2
-output_dim =1
-
 
 class Net(nn.Module):
     def __init__(self):
