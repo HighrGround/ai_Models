@@ -55,6 +55,7 @@ class NewGELU(nn.Module):
     def forward(self, x):
         return 0.5 * x * (1.0 + torch.tanh(math.sqrt(2.0 / math.pi) * (x + 0.044715 * torch.pow(x, 3.0))))
 
+'''
 class CausalSelfAttention(nn.Module):
     """
     A vanilla multi-head masked self-attention layer with a projection at the end.
@@ -93,6 +94,11 @@ class CausalSelfAttention(nn.Module):
         # output projection
         y = self.c_proj(y)
         return y
+    
+
+'''
+
+CausalSelfAttention =  torch.nn.MultiheadAttention()
 
 class Block(nn.Module):
     """ an unassuming Transformer block """

@@ -9,16 +9,16 @@ import pandas as pd
 #model parameter
 input_size = 64
 ouput_size = 1
-file_path = 'reales.csv'
+file_path = 'Songs.csv'
 data = pd.read_csv(file_path)
 X = data.drop('Type', axis=1).values 
-y = data['Sale Amount'].values  
+y = data['key'].values  
 
 class DenseLayer:
     def __init__(self, input_size, output_size, activation_function):
         self.weights = np.random.randn(input_size, output_size)
         self.bias = np.zeros((1, output_size))
-        self.activation_function = activation_function
+        self.activation_function = nn.relu()
         self.input_data = None
         self.output_data = None
         
@@ -87,9 +87,9 @@ model = SequentialNeuralNetwork()
 
 #defining the loss function and optimiser
 loss_function1 = loss_function()
+
+
 optimizer = optim.SGD(model.get_parameters(), lr=0.01)  
-
-
 
 
 
